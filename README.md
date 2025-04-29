@@ -1,0 +1,2 @@
+# serverC2
+Hacktivist
