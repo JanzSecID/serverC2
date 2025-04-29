@@ -1,20 +1,27 @@
+const WebSocket = require('ws');
 const express = require('express');
 const app = express();
+const port = process.env.PORT || 3000;
 
-app.use(express.json());
+// Set up WebSocket server
+const wss = new WebSocket.Server({ noServer: true });
 
-// Simulate C2 server deployment to Railway
-app.post('/create_server', (req, res) => {
-    // In a real scenario, this would:
-    // 1. Use Railway API to deploy server.js
-    // 2. Configure SSL/TLS
-    // 3. Return the assigned URL
-    // Example: https://api.railway.app/projects/{projectId}/services
-    const simulatedUrl = `wss://clayox-c2-${Math.random().toString(36).slice(2)}.railway.app:8443`;
-    console.log(`[*] Simulated deployment: ${simulatedUrl}`);
-    res.json({ url: simulatedUrl });
+// Handle WebSocket connections
+wss.on('connection', (ws) => {
+  console.log('Client connected');
+  ws.on('message', (message) => {
+    console.log('received: %s', message);
+  });
+  ws.send('Hello from WebSocket server!');
 });
 
-app.listen(3000, () => {
-    console.log('[*] Server creation API running on http://localhost:3000');
+// Express server setup to upgrade HTTP to WebSocket
+app.server = app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
+});
+
+app.server.on('upgrade', (request, socket, head) => {
+  wss.handleUpgrade(request, socket, head, (ws) => {
+    wss.emit('connection', ws, request);
+  });
 });
