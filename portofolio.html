@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Januar Nur Santoso - Cyber Security Portfolio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto Mono', monospace;
+            background: linear-gradient(135deg, #0d1b2a, #1b263b);
+            color: #e0e1dd;
+            overflow-x: hidden;
+        }
+
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5em;
+            color: #00ff88;
+            text-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: #778da9;
+            margin-top: 10px;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2em;
+            color: #00ff88;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .about, .portfolio, .contact {
+            background: rgba(27, 38, 59, 0.8);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+            margin-bottom: 40px;
+        }
+
+        .about p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #e0e1dd;
+            text-align: justify;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .portfolio-item {
+            background: #0d1b2a;
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 15px #00ff88;
+        }
+
+        .portfolio-item h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: #00ff88;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-item p {
+            color: #e0e1dd;
+            font-size: 0.95em;
+        }
+
+        .contact a {
+            display: inline-block;
+            font-family: 'Orbitron', sans-serif;
+            color: #00ff88;
+            font-size: 1.2em;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: color 0.3s;
+        }
+
+        .contact a:hover {
+            color: #ff0077;
+            text-shadow: 0 0 10px #ff0077;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88;
+            }
+            to {
+                text-shadow: 0 0 20px #00ff88, 0 0 30px #00ff88;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Januar Nur Santoso</h1>
+        <p>Cyber Security Expert | Exploit Analyst | Malware Researcher</p>
+    </header>
+
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <p>
+            I am Januar Nur Santoso, a passionate Cyber Security Specialist with a deep focus on exploit analysis and malware research. With years of experience in dissecting complex security vulnerabilities and analyzing malicious code, I strive to protect digital ecosystems from emerging threats. My expertise lies in reverse engineering, penetration testing, and developing robust security solutions. I am driven by a mission to stay ahead of cyber adversaries and contribute to a safer digital world.
+        </p>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+        <h2>Portfolio</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <h3>Exploit Analysis: Zero-Day Vulnerability</h3>
+                <p>
+                    Conducted in-depth analysis of a zero-day exploit targeting web applications, identifying attack vectors and developing mitigation strategies. Successfully patched vulnerabilities for a major enterprise client.
+                </p>
+            </div>
+            <div class="portfolio-item">
+                <h3>Malware Reverse Engineering</h3>
+                <p>
+                    Reverse-engineered a sophisticated ransomware strain, uncovering its encryption mechanisms and creating a decryption tool to assist affected organizations in data recovery.
+                </p>
+            </div>
+            <div class="portfolio-item">
+                <h3>Penetration Testing Framework</h3>
+                <p>
+                    Developed a custom penetration testing framework using Python, automating exploit delivery and vulnerability scanning for large-scale network assessments.
+                </p>
+            </div>
+            <div class="portfolio-item">
+                <h3>Source Code Audit</h3>
+                <p>
+                    Performed a comprehensive source code audit for a financial application, identifying critical security flaws and providing actionable recommendations to enhance code integrity.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact</h2>
+        <p>Follow me on Instagram for updates on my latest projects and insights into cyber security!</p>
+        <a href="https://instagram.com/networkdpk_" target="_blank">@networkdpk_</a>
+    </section>
+
+    <script>
+        // 3D Background Animation
+        let scene, camera, renderer, stars;
+
+        function init() {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            renderer = new THREE.WebGLRenderer({ canvas: document.createElement('canvas'), alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.body.appendChild(renderer.domElement);
+
+            const geometry = new THREE.BufferGeometry();
+            const vertices = [];
+            for (let i = 0; i < 1000; i++) {
+                vertices.push(
+                    Math.random() * 2000 - 1000,
+                    Math.random() * 2000 - 1000,
+                    Math.random() * 2000 - 1000
+                );
+            }
+            geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+
+            const material = new THREE.PointsMaterial({ color: 0x00ff88, size: 2 });
+            stars = new THREE.Points(geometry, material);
+            scene.add(stars);
+
+            camera.position.z = 500;
+
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            stars.rotation.x += 0.0005;
+            stars.rotation.y += 0.0005;
+            renderer.render(scene, camera);
+        }
+
+        init();
+        animate();
+
+        // GSAP Animations
+        gsap.from('header h1', { opacity: 0, y: -50, duration: 1.5, ease: 'power3.out' });
+        gsap.from('header p', { opacity: 0, y: 20, duration: 1.5, delay: 0.5, ease: 'power3.out' });
+        gsap.from('.about', { opacity: 0, y: 50, duration: 1, delay: 1, ease: 'power3.out' });
+        gsap.from('.portfolio', { opacity: 0, y: 50, duration: 1, delay: 1.5, ease: 'power3.out' });
+        gsap.from('.contact', { opacity: 0, y: 50, duration: 1, delay: 2, ease: 'power3.out' });
+    </script>
+</body>
+  </html>
